@@ -1,6 +1,6 @@
 import { ArrowButton } from 'src/ui/arrow-button';
 import { Button } from 'src/ui/button';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 
 import styles from './ArticleParamsForm.module.scss';
@@ -18,12 +18,23 @@ import {
 } from 'src/constants/articleProps';
 
 import { Select } from 'src/ui/select';
+import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 // Не забудь в селект онклосе
 
 export const ArticleParamsForm = () => {
+
+
+
+
 	const [isOpen, setIsOpen] = useState(false);
+	const asideRef = useRef<HTMLDivElement>(null);
 
-
+	useOutsideClickClose({
+		isOpen: isOpen,
+		rootRef: asideRef,
+		onClose: () => console.log('Закрыли меню'),
+		onChange: () => setIsOpen(!isOpen),
+	});
 	const [selectedFontSize, setSelectedFontSize] = useState(
 		defaultArticleState.fontSizeOption
 	);
@@ -46,7 +57,7 @@ export const ArticleParamsForm = () => {
 	return (
 		<>
 			<ArrowButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-			<aside className={clsx(styles.container, {[styles.container_open]: isOpen})}>
+			<aside ref={asideRef} className={clsx(styles.container, {[styles.container_open]: isOpen})}>
 				<form className={styles.form}>
 					<Select options={ fontFamilyOptions } placeholder='Плейсхолдер' selected={selectedFontFamily} onChange={setSelectedFontFamily} title='Шрифт'/>
 					<RadioGroup name='fontSize' options={ fontSizeOptions } selected={selectedFontSize} onChange={setSelectedFontSize} title='Размер шрифта' />
