@@ -20,7 +20,7 @@ import {
 import { Select } from 'src/ui/select';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 
-type Props = {
+type ArticleParamsFormProps = {
 	formParams: typeof defaultArticleState;
 	setFormParams: (params: typeof defaultArticleState) => void;
 	onApply: () => void;
@@ -32,7 +32,7 @@ export const ArticleParamsForm = ({
 	setFormParams,
 	onApply,
 	onReset,
-}: Props) => {
+}: ArticleParamsFormProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const asideRef = useRef<HTMLDivElement>(null);
 
