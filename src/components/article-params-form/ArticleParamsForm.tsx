@@ -55,7 +55,6 @@ export const ArticleParamsForm = ({
 					}}>
 					<Select
 						options={fontFamilyOptions}
-						placeholder='Плейсхолдер'
 						selected={formParams.fontFamilyOption}
 						onChange={(val) =>
 							setFormParams({ ...formParams, fontFamilyOption: val })
@@ -73,7 +72,6 @@ export const ArticleParamsForm = ({
 					/>
 					<Select
 						options={fontColors}
-						placeholder='Плейсхолдер'
 						selected={formParams.fontColor}
 						onChange={(val) => setFormParams({ ...formParams, fontColor: val })}
 						title='Цвет шрифта'
@@ -82,7 +80,6 @@ export const ArticleParamsForm = ({
 					<Separator />
 					<Select
 						options={backgroundColors}
-						placeholder='Плейсхолдер'
 						selected={formParams.backgroundColor}
 						onChange={(val) =>
 							setFormParams({ ...formParams, backgroundColor: val })
@@ -91,7 +88,6 @@ export const ArticleParamsForm = ({
 					/>
 					<Select
 						options={contentWidthArr}
-						placeholder='Плейсхолдер'
 						selected={formParams.contentWidth}
 						onChange={(val) =>
 							setFormParams({ ...formParams, contentWidth: val })
