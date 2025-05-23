@@ -19,7 +19,6 @@ import {
 
 import { Select } from 'src/ui/select';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
-// Не забудь в селект онклосе
 
 type Props = {
 	formParams: typeof defaultArticleState;
